@@ -2,24 +2,7 @@ import React from 'react';
 import ToDoList from './to_do_list';
 import AddToDoForm from './add_to_do_form';
 
-const toDos = [
-  {
-    id: '01',
-    title: 'Wash car'
-  },
-  {
-    id: '02',
-    title: 'Go to store'
-  },
-  {
-    id: '03',
-    title: 'Clean bathroom'
-  },
-  {
-    id: '04',
-    title: 'Learn React'
-  }
-]
+
 
 class App extends React.Component {
   constructor(props) {
@@ -36,25 +19,45 @@ class App extends React.Component {
     this.getToDos();
   }
 
+  // async addToDo(item){
+  //   const resp = await fetch('http://api.reactprototypes.com/todos?key=keaton13', {
+  //     method: 'POST',
+  //     body: JSON.stringify(item)
+  //   })
+
+  //   this.getToDos();
+  // }
+
   addToDo(item){
-    const { list } = this.state;
-
-    const _id = list.length + 1;
-
-    this.setState({
-      list: [
-        ...list,
-        {
-          _id: _id,
-          title: item.title
-        }
-      ]
-    });
+    fetch('http://api.reactprototypes.com/todos?key=keaton13', {
+      method: 'POST',
+      body: JSON.stringify(item)
+    }).then(resp => {
+      return resp.json();
+    }).then( data => {
+      this.getToDos();
+    }).catch( error => {
+      console.log('Caught Error:', error)
+    })
   }
 
+  // async getToDos() {
+  //   const resp = await fetch('http://api.reactprototypes.com/todos?key=keaton13');
+  //   const data = await resp.json();
+
+  //   this.setState({
+  //     list: data.todos
+  //   })
+  // }
+
   getToDos() {
-    this.setState({
-      list: toDos
+    fetch('http://api.reactprototypes.com/todos?key=keaton13').then( resp => {
+      return resp.json();
+    }).then(data =>{
+      console.log('Data:', data.todos)
+      this.setState({
+        list: data.todos
+      })
     })
   }
   render() {

@@ -5,7 +5,7 @@ class AddToDoForm extends React.Component {
     super(props);
 
     this.state = {
-      description: '',
+      details: '',
       title: ''
     }
 
@@ -39,7 +39,7 @@ class AddToDoForm extends React.Component {
   }
 
   render() {
-    const { description, title } = this.state;
+    const { details, title } = this.state;
 
     return (
       <form onSubmit={this.handleSubmit}>
@@ -51,7 +51,7 @@ class AddToDoForm extends React.Component {
         </div>
         <div>
           <label htmlFor="description">Description: </label>
-          <input value={description} name="description" onChange={this.handleChange} type="text" id="description" />
+          <input value={details} name="details" onChange={this.handleChange} type="text" id="description" />
         </div>
 
         <div>
