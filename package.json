@@ -2,7 +2,7 @@
   "name": "react_to_dos",
   "version": "1.0.0",
   "description": "To do list app built with React.js",
-  "main": "src/index.js",
+  "main": "src/index.jsx",
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack",
@@ -13,7 +13,7 @@
     "type": "git",
     "url": "git+https://github.com/Keaton13/react_to_dos.git"
   },
-  "author": "",
+  "author": "Keaton Krieger",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/Keaton13/react_to_dos/issues"
