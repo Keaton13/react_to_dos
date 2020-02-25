@@ -33,7 +33,7 @@ class AddToDoForm extends React.Component {
 
   reset() {
     this.setState({
-      description: '',
+      details: '',
       title: ''
     });
   }

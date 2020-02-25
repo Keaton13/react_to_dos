@@ -2,7 +2,6 @@ import React from 'react';
 import ToDoList from './to_do_list';
 import AddToDoForm from './add_to_do_form';
 
-
 class App extends React.Component {
   constructor(props) {
     super(props);
